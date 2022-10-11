@@ -1,7 +1,7 @@
 {
-  "name": "esbuild-sass-plugin",
+  "name": "esbuild-sass-plugin-ysink",
   "version": "2.3.3",
-  "description": "esbuild plugin for sass/scss files supporting both css loader and css result import (lit-element)",
+  "description": "esbuild plugin for sass/scss files READ README",
   "main": "lib/index.js",
   "keywords": [
     "esbuild",
@@ -17,15 +17,15 @@
     "LICENSE",
     "README.MD"
   ],
-  "author": "Gianluca Romeo <glromeo@gmail.com> (https://github.com/glromeo/esbuild-sass-plugin)",
+  "author": "Yellowsink",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/glromeo/esbuild-sass-plugin/issues"
+    "url": "https://github.com/yellowsink/esbuild-sass-plugin/issues"
   },
-  "homepage": "https://github.com/glromeo/esbuild-sass-plugin#readme",
+  "homepage": "https://github.com/yellowsink/esbuild-sass-plugin#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/glromeo/esbuild-sass-plugin.git"
+    "url": "https://github.com/yellowink/esbuild-sass-plugin.git"
   },
   "scripts": {
     "setup": "cd test/fixture && yarn install && cd ../issues && yarn install && cd ../..",
