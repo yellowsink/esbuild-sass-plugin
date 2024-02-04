@@ -1,6 +1,6 @@
 {
   "name": "esbuild-sass-plugin-ysink",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "esbuild plugin for sass/scss files READ README",
   "main": "lib/index.js",
   "keywords": [

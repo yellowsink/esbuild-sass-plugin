@@ -92,6 +92,11 @@ export const css = \`${cssText.replace(/([$`\\])/g, '\\$1')}\`;
 export const classes = ${cssModulesClasses};
 `;
 
+const postcssModulesShelterModule = (cssText: string, cssModulesClasses: string) => `\
+shelter.plugin.scoped.ui.injectCss(\`${cssText.replace(/([$`\\])/g, '\\$1')}\`);
+export default ${cssModulesClasses};
+`;
+
 const cssTextModule = cssText => `\
 export default \`
 ${cssText.replace(/([$`\\])/g, '\\$1')}\`;
@@ -140,7 +145,7 @@ export function parseNonce(nonce: string | undefined): string | undefined {
 
 export type PostcssModulesParams = Parameters<PostcssModulesPlugin>[0] & {
   basedir?: string
-  inject?: boolean
+  inject?: boolean | "shelter"
 };
 
 export function postcssModules(options: PostcssModulesParams, plugins: AcceptedPlugin[] = []) {
@@ -163,9 +168,11 @@ export function postcssModules(options: PostcssModulesParams, plugins: AcceptedP
     ]).process(source, {from: path, map: false})
 
     return {
-      contents: options.inject === false
-          ? postcssModulesModule(css, cssModule)
-          : `${makeModule(css, 'style', this.nonce)}export default ${cssModule};`,
+      contents: options.inject === "shelter"
+          ? postcssModulesShelterModule(css, cssModule)
+          : options.inject === false
+            ? postcssModulesModule(css, cssModule)
+            : `${makeModule(css, 'style', this.nonce)}export default ${cssModule};`,
       loader: 'js'
     }
   }
